@@ -1,0 +1,94 @@
+.hero {
+  position: relative;
+  width: 100%;
+  height: calc(100vh - 54px); 
+  overflow: hidden;
+  background-color: var(--cream); 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 1px solid var(--line); 
+}
+
+/* ================================ */
+/* LAYER 1: IMAGE SLIDES            */
+/* ================================ */
+.hero__slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.hero__img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  user-select: none;
+  will-change: opacity; 
+}
+
+/* ================================ */
+/* LAYER 2: STATIC CENTER BRAND     */
+/* ================================ */
+.hero__static-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 10; /* Menjamin posisi selalu paling atas */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none; /* Agar klik/scroll pengguna tidak terblokir oleh invisible box */
+}
+
+.hero__brand-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px; /* Jarak antara logo dan teks */
+  
+  /* Memberikan bayangan super halus agar logo dan teks 
+     tetap terbaca jelas baik di foto gelap maupun terang */
+  filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.25));
+}
+
+.hero__logo-center {
+  height: 56px; /* Lebih besar dari ukuran di Navbar (26px) agar berwibawa di Hero */
+  width: auto;
+}
+
+.hero__name-center {
+  font-family: var(--font-serif);
+  /* clamp() memastikan ukuran font responsif: 
+     minimal 24px (mobile), skalanya 4vw, maksimal 42px (desktop) */
+  font-size: clamp(24px, 4vw, 42px);
+  font-weight: 600;
+  letter-spacing: 0.18em; /* Jarak huruf dilebarkan agar terlihat mahal */
+  color: #FFFFFF; /* Warna putih lebih menonjol di atas fotografi */
+  margin: 0;
+  text-align: center;
+}
+
+/* ================================ */
+/* RESPONSIVE (MOBILE)              */
+/* ================================ */
+@media (max-width: 768px) {
+  .hero {
+    height: calc(100vh - 48px); 
+  }
+  
+  .hero__brand-center {
+    gap: 12px;
+  }
+  
+  .hero__logo-center {
+    height: 42px; /* Disesuaikan sedikit lebih kecil untuk mobile */
+  }
+}

@@ -1,0 +1,136 @@
+:root {
+  --cream: #fcf4e8;
+  --ink: #0a2b3a;
+  --lime: #b8ff1a;
+  --olive: #8db80f;
+  --line: rgba(10, 43, 58, 0.15);
+  --font-sans: "Inter", sans-serif;
+  --font-serif: "Cormorant Garamond", serif;
+  --nav-h: 55px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: var(--cream);
+  color: var(--ink);
+  font-family: var(--font-sans);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font: inherit;
+  color: inherit;
+  background: none;
+  border: 0;
+  cursor: pointer;
+}
+
+ul {
+  list-style: none;
+}
+
+@media (max-width: 768px) {
+  :root {
+    --nav-h: 51px;
+  }
+}
+
+.marquee {
+  /* Background marquee gelap */
+  --bg: var(--ink);
+  /* Teks warna cream */
+  --fg: var(--cream);
+  /* Filter dimatikan supaya logo.png tampil sesuai aslinya */
+  --logo-filter: none;
+
+  --gap: clamp(24px, 3.2vw, 52px);
+  --logo-h: clamp(26px, 2.2vw, 34px);
+  --fs-caps: clamp(12px, 1vw, 14px);
+  --fs-italic: clamp(17px, 1.4vw, 21px);
+
+  position: relative;
+  overflow: hidden;
+  margin-top: -1px;
+  background: var(--bg);
+  color: var(--fg);
+  border-top: 2px solid var(--ink);
+  border-bottom: 1px solid var(--ink);
+}
+
+.marquee__viewport {
+  -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 6%, #000 94%, transparent 100%);
+  mask-image: linear-gradient(90deg, transparent 0, #000 6%, #000 94%, transparent 100%);
+}
+
+.marquee__track {
+  display: flex;
+  width: max-content;
+  padding: 18px 0;
+  will-change: transform;
+  backface-visibility: hidden;
+}
+
+.marquee__group {
+  display: flex;
+  align-items: baseline;
+  flex: 0 0 auto;
+}
+
+.marquee__item {
+  margin-right: var(--gap);
+  font-family: var(--font-serif);
+  font-weight: 500;
+  line-height: 1.2;
+  white-space: nowrap;
+}
+
+.marquee__item[data-style="caps"] {
+  font-size: var(--fs-caps);
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.marquee__item[data-style="italic"] {
+  font-size: var(--fs-italic);
+  font-style: italic;
+  letter-spacing: 0.01em;
+}
+
+.marquee__sep {
+  flex: none;
+  align-self: center;
+  display: flex;
+  align-items: center;
+  margin-right: var(--gap);
+}
+
+.marquee__sep img {
+  display: block;
+  height: var(--logo-h);
+  width: auto;
+  filter: var(--logo-filter);
+  user-select: none;
+}
+
+@media (max-width: 768px) {
+  .marquee {
+    --gap: 22px;
+    --logo-h: 24px;
+    --fs-caps: 11px;
+    --fs-italic: 16px;
+  }
+
+  .marquee__track {
+    padding: 14px 0;
+  }
+}

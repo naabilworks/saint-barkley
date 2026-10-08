@@ -1,0 +1,45 @@
+:root {
+  --cream: #fcf4e8;
+  --ink: #0a2b3a;
+  --lime: #b8ff1a;
+  --olive: #8db80f;
+  --line: rgba(10, 43, 58, 0.15);
+  --font-sans: "Inter", sans-serif;
+  --font-serif: "Cormorant Garamond", serif;
+  --nav-h: 55px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: var(--cream);
+  color: var(--ink);
+  font-family: var(--font-sans);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font: inherit;
+  color: inherit;
+  background: none;
+  border: 0;
+  cursor: pointer;
+}
+
+ul {
+  list-style: none;
+}
+
+@media (max-width: 768px) {
+  :root {
+    --nav-h: 51px;
+  }
+}

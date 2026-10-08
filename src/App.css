@@ -1,0 +1,5 @@
+/* Intentionally empty.
+   The previous contents were Vite starter-template styles (.counter, #center,
+   #next-steps, .ticks ...) that reference undefined variables like --border and
+   --accent and are not used by this site. Global tokens live in styles/globals.css,
+   shop/cart/page styles in styles/shop.css, section styles beside each component. */
